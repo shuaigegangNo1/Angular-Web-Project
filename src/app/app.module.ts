@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 import { AppComponent } from './app.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Import containers
 import {
   FullLayoutComponent,
@@ -39,7 +39,8 @@ const APP_COMPONENTS = [
   AppSidebarFormComponent,
   AppSidebarHeaderComponent,
   AppSidebarMinimizerComponent,
-  APP_SIDEBAR_NAV
+  APP_SIDEBAR_NAV,
+  LoginComponent,
 ]
 
 // Import directives
@@ -64,27 +65,35 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
-import {LoginComponent} from "./views/pages/login.component";
-
+import {MessageService} from './common/service/messageService';
+import {LoginComponent} from './views/pages/login.component';
+import {NotificationsService} from 'angular2-notifications/dist';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 @NgModule({
   imports: [
     BrowserModule,
     AppRoutingModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
-    ChartsModule
+    ChartsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   declarations: [
     AppComponent,
-    LoginComponent,
+
     ...APP_CONTAINERS,
     ...APP_COMPONENTS,
     ...APP_DIRECTIVES
   ],
   providers: [{
     provide: LocationStrategy,
-    useClass: HashLocationStrategy
-  }],
+    useClass: HashLocationStrategy,
+  },
+    MessageService,
+    NotificationsService
+  ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

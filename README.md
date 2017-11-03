@@ -29,3 +29,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## ng serve error: Cannot read property 'config' of null
 
 solution: lack of file .angular-cli.json
+
+## Set Angualr Environment: 
+
+1. install node
+2. sudo npm install @angular/cli -g
+

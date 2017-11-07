@@ -67,6 +67,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import {MessageService} from './common/service/messageService';
 import {NotificationsService} from 'angular2-notifications/dist';
+import {SimpleNotificationsModule} from 'angular2-notifications';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppLoginComponent} from './login/login.component';
 import {LoginComponent} from './views/pages/login.component';
@@ -79,7 +80,8 @@ import {LoginComponent} from './views/pages/login.component';
     ChartsModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SimpleNotificationsModule.forRoot(),
   ],
   declarations: [
     AppComponent,

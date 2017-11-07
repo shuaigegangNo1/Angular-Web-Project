@@ -7,7 +7,6 @@ import {NotificationsService} from 'angular2-notifications/dist';
   // tslint:disable-next-line
   selector: 'body',
   templateUrl: './app.component.html',
-  // template: '<router-outlet></router-outlet>'
 })
 export class AppComponent extends BaseAuthenticateComponent {
   options: any = {timeOut: 3000};

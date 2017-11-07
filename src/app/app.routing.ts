@@ -61,7 +61,7 @@ export const routes: Routes = [
       }
     ]
   },
-  {path: "**", component: AppLoginComponent}
+  {path: '**', component: AppLoginComponent}
 ];
 
 @NgModule({

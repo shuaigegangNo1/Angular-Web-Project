@@ -2,13 +2,15 @@ import { Component } from '@angular/core';
 import {BaseAuthenticateComponent} from './common/component/BaseAuthenticateComponent';
 import {Router} from '@angular/router';
 import {MessageService} from './common/service/messageService';
-import {NotificationsService} from "angular2-notifications/dist";
+import {NotificationsService} from 'angular2-notifications/dist';
 @Component({
   // tslint:disable-next-line
   selector: 'body',
-  template: '<router-outlet></router-outlet>'
+  templateUrl: './app.component.html',
+  // template: '<router-outlet></router-outlet>'
 })
 export class AppComponent extends BaseAuthenticateComponent {
+  options: any = {timeOut: 3000};
   constructor(protected router: Router, protected a_notificationService: NotificationsService,
               private messageService: MessageService) {
     super(router, messageService);
@@ -18,6 +20,7 @@ export class AppComponent extends BaseAuthenticateComponent {
         appMessage => {
           switch (appMessage.type) {
             case 'error': {
+              console.log('enter error subscribe>>>', appMessage.content);
               this.a_notificationService.error(appMessage.title, appMessage.content);
               break;
             }

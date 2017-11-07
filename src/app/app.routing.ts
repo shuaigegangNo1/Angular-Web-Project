@@ -7,6 +7,7 @@ import {
   SimpleLayoutComponent
 } from './containers';
 import {LoginComponent} from "./views/pages/login.component";
+import {AppLoginComponent} from './login/login.component';
 
 export const routes: Routes = [
   {
@@ -60,7 +61,7 @@ export const routes: Routes = [
       }
     ]
   },
-  {path: "**", component: LoginComponent}
+  {path: "**", component: AppLoginComponent}
 ];
 
 @NgModule({

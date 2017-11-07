@@ -7,13 +7,13 @@ import {MessageService} from '../../common/service/messageService';
 
 
 @Component({
-    selector: "app-login-cmp",
-    templateUrl: "./login.component.html",
+    selector: 'app-login',
+    templateUrl: 'login.component.html',
 })
 export class LoginComponent extends BaseReactiveFormComponent<User> {
 
     options: any = {timeOut: 3000};
-    successURL: string;
+    @Input() successURL: string;
     constructor(protected a_router: Router,
                 protected _fb: FormBuilder,
                 protected _messageService: MessageService) {

@@ -26,7 +26,7 @@ import {
   AppSidebarFormComponent,
   AppSidebarHeaderComponent,
   AppSidebarMinimizerComponent,
-  APP_SIDEBAR_NAV
+  APP_SIDEBAR_NAV,
 } from './components';
 
 const APP_COMPONENTS = [
@@ -39,8 +39,8 @@ const APP_COMPONENTS = [
   AppSidebarFormComponent,
   AppSidebarHeaderComponent,
   AppSidebarMinimizerComponent,
-  APP_SIDEBAR_NAV,
-  LoginComponent,
+  APP_SIDEBAR_NAV
+
 ]
 
 // Import directives
@@ -66,9 +66,10 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import {MessageService} from './common/service/messageService';
-import {LoginComponent} from './views/pages/login.component';
 import {NotificationsService} from 'angular2-notifications/dist';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AppLoginComponent} from './login/login.component';
+import {LoginComponent} from './views/pages/login.component';
 @NgModule({
   imports: [
     BrowserModule,
@@ -82,7 +83,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
   ],
   declarations: [
     AppComponent,
-
+    AppLoginComponent,
+      LoginComponent,
     ...APP_CONTAINERS,
     ...APP_COMPONENTS,
     ...APP_DIRECTIVES

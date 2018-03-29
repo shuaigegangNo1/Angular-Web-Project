@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {User} from '../../common/entity/User';
 import {BaseReactiveFormComponent} from '../../common/component/BaseReactiveFormComponent';
 import {MessageService} from '../../common/service/messageService';
+import {LoginService} from '../../common/service/loginService';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class LoginComponent extends BaseReactiveFormComponent<User> {
     @Input() successURL: string;
     constructor(protected a_router: Router,
                 protected _fb: FormBuilder,
-                protected _messageService: MessageService) {
+                protected _messageService: MessageService,
+                protected loginService: LoginService) {
         super(a_router,  _fb, _messageService, false);
         this.domainObject = new User();
         super.buildForm();
@@ -58,17 +60,23 @@ export class LoginComponent extends BaseReactiveFormComponent<User> {
     }
 
     login() {
-        if (this.domainObject.username === 'admin' && this.domainObject.password === '111') {
-            const user = new User();
-            user.type = 0;
-            user.id = 1;
-            this.successURL = '/dashboard';
-            localStorage.setItem("loginUser", JSON.stringify(user));
-            //this._messageService.pushMessage({type: "login"});
-            this.a_router.navigate([this.successURL]);
+        if (this.domainObject.username === null || this.domainObject.password === null) {
+            this.handleError("登录失败,请检查用户名及密码.");
         }
          else {
-            this.handleError("登录失败,请检查用户名及密码.");
+            this.successURL = '/dashboard';
+            //this._messageService.pushMessage({type: "login"});
+            const user1 = {'name': this.domainObject.username, 'password' : this.domainObject.password}
+            this.loginService.login(user1).subscribe(
+                res => {
+                localStorage.setItem('token', res.token);
+                localStorage.setItem('loginUser', JSON.stringify(user1));
+                this.a_router.navigate([this.successURL]);
+            },
+                err => {
+                            this.handleError('登录失败,请检查用户名及密码.');
+                        }
+                )
         }
         // this._userService.login(this.domainObject.username, this.domainObject.password).subscribe(
         //     (result) => {
@@ -81,6 +89,4 @@ export class LoginComponent extends BaseReactiveFormComponent<User> {
         //     }
         // );
     }
-
-
 }

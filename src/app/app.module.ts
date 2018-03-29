@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import {LocationStrategy, HashLocationStrategy, CommonModule} from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -71,6 +71,9 @@ import {SimpleNotificationsModule} from 'angular2-notifications';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppLoginComponent} from './login/login.component';
 import {LoginComponent} from './views/pages/login.component';
+import {LoginService} from './common/service/loginService';
+import {LocationService} from './common/service/locationService';
+import {HttpModule} from '@angular/http';
 @NgModule({
   imports: [
     BrowserModule,
@@ -82,6 +85,8 @@ import {LoginComponent} from './views/pages/login.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     SimpleNotificationsModule.forRoot(),
+    HttpModule,
+    CommonModule
   ],
   declarations: [
     AppComponent,
@@ -96,7 +101,9 @@ import {LoginComponent} from './views/pages/login.component';
     useClass: HashLocationStrategy,
   },
     MessageService,
-    NotificationsService
+    NotificationsService,
+    LoginService,
+    LocationService
   ],
   bootstrap: [ AppComponent ]
 })

@@ -14,12 +14,12 @@ export const navigation = [
   },
   {
     name: '位置管理',
-    url: '/components',
+    url: '/location',
     icon: 'icon-puzzle',
     children: [
       {
         name: '机房管理',
-        url: '/components/buttons',
+        url: '/location',
         icon: 'icon-puzzle'
       },
       {

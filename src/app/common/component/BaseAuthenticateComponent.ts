@@ -51,7 +51,6 @@ export abstract class BaseAuthenticateComponent implements AfterViewInit, OnInit
     }
 
     handleError(message) {
-        console.log("enter>>>> handle")
         this.a_messageService.pushMessage({title: "Error", content: message, type: "error"});
     }
 }

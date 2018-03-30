@@ -74,6 +74,7 @@ import {LoginComponent} from './views/pages/login.component';
 import {LoginService} from './common/service/loginService';
 import {LocationService} from './common/service/locationService';
 import {HttpModule} from '@angular/http';
+import {UserService} from './common/service/userService';
 @NgModule({
   imports: [
     BrowserModule,
@@ -85,8 +86,7 @@ import {HttpModule} from '@angular/http';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     SimpleNotificationsModule.forRoot(),
-    HttpModule,
-    CommonModule
+    HttpModule
   ],
   declarations: [
     AppComponent,
@@ -103,7 +103,8 @@ import {HttpModule} from '@angular/http';
     MessageService,
     NotificationsService,
     LoginService,
-    LocationService
+    LocationService,
+    UserService
   ],
   bootstrap: [ AppComponent ]
 })

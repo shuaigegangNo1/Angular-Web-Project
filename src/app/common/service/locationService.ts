@@ -17,4 +17,8 @@ export class LocationService extends BaseService {
         return this.http.get(this.getServiceUrl() + '/user/userlist' , this.getJsonHeaderWithJWT())
             .map(res => res.json()).catch(this.handleError);
     }
+    getLocationList(page: number) {
+        return this.http.get(this.getServiceUrl() + '/location/list?page=' + page, this.getJsonHeaderWithJWT())
+            .map(res => res.json()).catch(this.handleError);
+    }
 }

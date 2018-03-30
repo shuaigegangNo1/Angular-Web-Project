@@ -5,13 +5,19 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import {CommonModule} from '@angular/common';
+import {ModalModule, PaginationModule} from 'ngx-bootstrap';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
     DashboardRoutingModule,
     ChartsModule,
     BsDropdownModule,
-    CommonModule
+    CommonModule,
+    ModalModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule,
+    PaginationModule.forRoot(),
   ],
   declarations: [ DashboardComponent ]
 })

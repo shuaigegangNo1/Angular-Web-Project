@@ -12,7 +12,7 @@ export class LocationComponent implements OnInit {
   page  = 0;
   constructor(protected router: Router, protected messageService: MessageService,
               private locationService: LocationService) {
-    this.getUserList();
+    // this.getUserList();
     this.getLocationList()
   }
 
@@ -21,11 +21,11 @@ export class LocationComponent implements OnInit {
 
   }
 
-  getUserList() {
-    this.locationService.getUserlist().subscribe(res => {
-      this.usersList = res.userList;
-    })
-  }
+  // getUserList() {
+  //   this.locationService.getUserlist().subscribe(res => {
+  //     this.usersList = res.userList;
+  //   })
+  // }
   getLocationList() {
     this.locationService.getLocationList(this.page).subscribe(res => {
       this.locationList = res.locationList.content;

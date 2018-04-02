@@ -5,8 +5,10 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import {CommonModule} from '@angular/common';
-import {ModalModule, PaginationModule} from 'ngx-bootstrap';
+import {ModalModule, PaginationModule, TabsModule} from 'ngx-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MessageComponent} from './message.component';
+import {UserDetailComponent} from './user.detail.component';
 
 @NgModule({
   imports: [
@@ -18,7 +20,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     PaginationModule.forRoot(),
+    TabsModule.forRoot()
   ],
-  declarations: [ DashboardComponent ]
+  declarations: [ DashboardComponent, UserDetailComponent, MessageComponent ]
 })
 export class DashboardModule { }

@@ -69,15 +69,20 @@ export class DashboardComponent extends CustomPaginationComponent implements OnI
     }
   }
   create() {
-  this.isUpdate = false;
-  this.updateModal.show();
+  // this.isUpdate = false;
+  // this.updateModal.show();
+    this.router.navigate(['/dashboard/detail']);
   }
   delete(id: number) {
-    this.userService.delete(id).subscribe(res => {})
+    this.userService.delete(id).subscribe(res => {
+      // window.location.reload();
+      this.messageService.pushMessage({title: 'Success', content: '用户删除成功', type: 'success'});
+      this.router.navigate(['/dashboard/message']);
+    })
   }
   pageChanged(event: any) {
     // this.userCriteria.skip = (event.page - 1) * this.userCriteria.pagesize;
-    this.userCriteria.skip = event.page - 1
+    this.userCriteria.skip = event.page - 1;
     this.searchStream.next(this.userCriteria);
   }
 }

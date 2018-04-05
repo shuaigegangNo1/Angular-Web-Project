@@ -15,8 +15,7 @@ export class LocationService extends BaseService {
         return 'http://localhost:8080';
     }
     getUserlist(userCritera: RMUserCriteria) {
-        console.log(">>>>"+userCritera.skip)
-        return this.http.get(this.getServiceUrl() + '/user/list?page=' + userCritera.skip , this.getJsonHeaderWithJWT())
+        return this.http.post(this.getServiceUrl() + '/user/querylist?page=' + userCritera.skip , JSON.stringify(userCritera) , this.getJsonHeaderWithJWT())
             .map(res => res.json()).catch(this.handleError);
     }
     getLocationList(page: number) {

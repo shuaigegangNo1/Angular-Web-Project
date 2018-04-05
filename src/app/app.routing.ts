@@ -6,7 +6,6 @@ import {
   FullLayoutComponent,
   SimpleLayoutComponent
 } from './containers';
-import {LoginComponent} from "./views/pages/login.component";
 import {AppLoginComponent} from './login/login.component';
 
 export const routes: Routes = [
@@ -24,7 +23,7 @@ export const routes: Routes = [
     children: [
       {
         path: 'dashboard',
-        loadChildren: './views/dashboard/dashboard.module#DashboardModule'
+        loadChildren: './views/user/user.module#UserModule'
       },
       {
         path: 'location',

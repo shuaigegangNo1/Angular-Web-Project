@@ -69,7 +69,7 @@ export class UserDetailComponent {
         //             type: "success"
         //         });
         //
-        //         this.router.navigate(['/dashboard']);
+        //         this.router.navigate(['/user']);
         //     },
         //     err => this.handleError(err)
         // );
@@ -86,7 +86,7 @@ export class UserDetailComponent {
         this.userService.create(this.user).subscribe(
             res => {
                 this.messageService.pushMessage({title: 'Success', content: '用户创建成功', type: 'success'});
-                this.router.navigate(['/dashboard']);
+                this.router.navigate(['/user']);
             })
     }
 }

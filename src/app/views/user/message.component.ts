@@ -11,6 +11,6 @@ export class MessageComponent {
 
     constructor(protected router: Router) { }
     jump() {
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/user']);
     }
 }

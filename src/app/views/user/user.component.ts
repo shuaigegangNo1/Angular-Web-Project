@@ -9,7 +9,7 @@ import {CustomPaginationComponent} from '../pagination/pagination.component';
 import {Subject} from 'rxjs/Subject';
 
 @Component({
-  templateUrl: 'dashboard.component.html'
+  templateUrl: 'user.component.html'
 })
 export class DashboardComponent extends CustomPaginationComponent implements OnInit {
   usersList: Array<any>;
@@ -42,6 +42,8 @@ export class DashboardComponent extends CustomPaginationComponent implements OnI
   }
 
   getUserList() {
+    // Inital
+    this.userCriteria.email = '';
     this.locationService.getUserlist(this.userCriteria).subscribe(res => {
       this.usersList = res.result.content;
       this.totalItems[0] = res.result.totalElements;
@@ -71,18 +73,21 @@ export class DashboardComponent extends CustomPaginationComponent implements OnI
   create() {
   // this.isUpdate = false;
   // this.updateModal.show();
-    this.router.navigate(['/dashboard/detail']);
+    this.router.navigate(['/user/detail']);
   }
   delete(id: number) {
     this.userService.delete(id).subscribe(res => {
       // window.location.reload();
       this.messageService.pushMessage({title: 'Success', content: '用户删除成功', type: 'success'});
-      this.router.navigate(['/dashboard/message']);
+      this.router.navigate(['/user/message']);
     })
   }
   pageChanged(event: any) {
     // this.userCriteria.skip = (event.page - 1) * this.userCriteria.pagesize;
     this.userCriteria.skip = event.page - 1;
+    this.searchStream.next(this.userCriteria);
+  }
+  searchUserName() {
     this.searchStream.next(this.userCriteria);
   }
 }

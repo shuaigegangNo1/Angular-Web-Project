@@ -64,7 +64,7 @@ export class LoginComponent extends BaseReactiveFormComponent<User> {
             this.handleError("登录失败,请检查用户名及密码.");
         }
          else {
-            this.successURL = '/dashboard';
+            this.successURL = '/user';
             //this._messageService.pushMessage({type: "login"});
             const user1 = {'name': this.domainObject.username, 'password' : this.domainObject.password}
             this.loginService.login(user1).subscribe(

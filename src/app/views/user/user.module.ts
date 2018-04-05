@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
-import { DashboardComponent } from './dashboard.component';
-import { DashboardRoutingModule } from './dashboard-routing.module';
+import { DashboardComponent } from './user.component';
+import { DashboardRoutingModule } from './user-routing.module';
 import {CommonModule} from '@angular/common';
 import {ModalModule, PaginationModule, TabsModule} from 'ngx-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -24,4 +24,4 @@ import {UserDetailComponent} from './user.detail.component';
   ],
   declarations: [ DashboardComponent, UserDetailComponent, MessageComponent ]
 })
-export class DashboardModule { }
+export class UserModule { }
